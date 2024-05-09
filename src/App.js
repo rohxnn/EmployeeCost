@@ -1,4 +1,6 @@
 import './App.css';
+//component
+import AddItem from './components/AddItem/AddItem';
 
 function App() {
   return (
@@ -6,6 +8,7 @@ function App() {
       <header>
         Manage Cost Overheads
       </header>
+      <AddItem/>
     </div>
   );
 }
