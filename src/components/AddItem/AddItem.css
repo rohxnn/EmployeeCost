@@ -1,3 +1,12 @@
 .box {
     display: flex;
+    gap: 30px;
+    padding: 30px;
+}
+.sub-box {
+    width: 70%;
+    background-color: rgb(252, 252, 252);
+}
+.side-box {
+
 }
