@@ -11,13 +11,8 @@ function EmployeeDetail(props) {
         setTotalCostPerEmployee(newTotalCost);
     }, [salary, props.costPerPerson]);
 
-    function c() {
-        console.log(totalCostPerEmployee);
-        console.log(profit);
-    }
     return (
         <div>
-            {c()}
             <label>Employee Name</label>
             <input type='text' />
             <label>Employee Salary</label>

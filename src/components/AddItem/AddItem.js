@@ -56,7 +56,8 @@ function AddItem() {
           </div>
         </div>
         <div className='side-box'>
-          <Setting totalAmount={getTotalAmount}
+          <Setting 
+            totalAmount={getTotalAmount}
             setCostPerPerson={setCostPerPerson}
             setProfitPercentage={setProfitPercentage}
           ></Setting>
