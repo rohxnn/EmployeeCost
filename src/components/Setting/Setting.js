@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import './Setting.css';
 
-function Setting({ totalAmount, setCostPerPerson, setProfitPercentage }) {
+function Setting(props) {
     const [employeeNumber, setEmployeeNumber] = useState(1);
 
     useEffect(() => {
-        const costPerPerson = totalAmount / employeeNumber;
-        setCostPerPerson(costPerPerson);
-        console.log(costPerPerson)
-    }, [totalAmount, employeeNumber]);
+        const costPerPerson = props.totalAmount() / employeeNumber;
+        props.setCostPerPerson(costPerPerson);
+    }, [props.totalAmount(), employeeNumber]);
 
     const handleEmployeeNumberChange = (e) => {
         setEmployeeNumber(e.target.value);
     }
 
     const handleProfitChanges = (e) => {
-        setProfitPercentage(e.target.value);
+        props.setProfitPercentage(e.target.value);
     }
 
     return (
