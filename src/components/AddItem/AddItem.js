@@ -55,9 +55,32 @@ function AddItem() {
             updatedInputList.map((x, i) => {
               return (
                 <div className='formBox' key={i}>
-                  <input type='text' name="description" value={x.description} onChange={(e) => handleInputChange(e, i)} />
-                  <input type='number' name="amount" value={x.amount} onChange={(e) => handleInputChange(e, i)} />
-                  <input type='number' name="month" value={x.month} onChange={(e) => handleInputChange(e, i)} />
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Description</th>
+                      <th>Amount</th>
+                      <th>Month</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                      <input type='text' name="description" value={x.description} onChange={(e) => handleInputChange(e, i)} />
+                        </td>
+                      <td>
+                      <input type='number' name="amount" value={x.amount} onChange={(e) => handleInputChange(e, i)} />
+                        </td>
+                      <td>
+                      <input type='number' name="month" value={x.month} onChange={(e) => handleInputChange(e, i)} />
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                  
+                  
+                  
                   <button disabled={updatedInputList.length <= 1} onClick={() => deleteSection(i)}>X</button>
                 </div>
               );
