@@ -8,7 +8,9 @@ function App() {
       <header>
         Manage Cost Overheads
       </header>
+      <div className='inner-container'>
       <AddItem/>
+      </div>
     </div>
   );
 }
