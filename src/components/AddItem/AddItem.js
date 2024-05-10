@@ -74,19 +74,14 @@ function AddItem() {
                       <td>
                       <input type='number' name="month" value={x.month} onChange={(e) => handleInputChange(e, i)} />
                         </td>
+                        <button disabled={updatedInputList.length <= 1} onClick={() => deleteSection(i)}>X</button>
                     </tr>
                   </tbody>
                 </table>
-                
-                  
-                  
-                  
-                  <button disabled={updatedInputList.length <= 1} onClick={() => deleteSection(i)}>X</button>
                 </div>
               );
             })
           }
-
           <div>
             <button onClick={handleAddClick}>Add Items</button>
           </div>

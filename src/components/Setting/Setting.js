@@ -5,9 +5,9 @@ function Setting(props) {
     const [employeeNumber, setEmployeeNumber] = useState(1);
 
     useEffect(() => {
-        const costPerPerson = props.totalAmount() / employeeNumber;
+        const costPerPerson = props.totalAmount / employeeNumber;
         props.setCostPerPerson(costPerPerson);
-    }, [props.totalAmount(), employeeNumber]);
+    }, [props.totalAmount, employeeNumber]);
 
     const handleEmployeeNumberChange = (e) => {
         setEmployeeNumber(e.target.value);
