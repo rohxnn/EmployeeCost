@@ -28,7 +28,7 @@ function AddItem() {
   //   },0);
   //   console.log(totalAmount);
   //   return totalAmount ? totalAmount.toFixed(2) : 0;
-  // }
+  // } kk
 
   function deleteSection(i) {
     console.log(i);
