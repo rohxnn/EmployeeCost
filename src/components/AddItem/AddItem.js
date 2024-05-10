@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AddItem.css'
 //components
 import Setting from '../Setting/Setting';
@@ -8,6 +8,8 @@ function AddItem() {
   const [inputList, setInputList] = useState([{ description: '', amount: '', month: '' }]);
   const [costPerPerson, setCostPerPerson] = useState(0);
   const [profitPercent, setProfitPercentage] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  let updatedInputList = [...inputList];
 
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -20,25 +22,43 @@ function AddItem() {
     setInputList([...inputList, { description: '', amount: '', month: '' }])
   }
 
-  function getTotalAmount() {
-    const sum = (accumulator, data) => {
-      return accumulator + (data.amount / data.month);
-    };
-    const totalAmount = inputList.reduce(sum, 0);
-    return totalAmount.toFixed(2);
+  // function getTotalAmount() {
+  //   const totalAmount = inputList.reduce((accumulator, data) => {
+  //     return accumulator + (data.amount / data.month);
+  //   },0);
+  //   console.log(totalAmount);
+  //   return totalAmount ? totalAmount.toFixed(2) : 0;
+  // }
+
+  function deleteSection(i) {
+    console.log(i);
+    updatedInputList = [...inputList];
+    updatedInputList.splice(i, 1);
+    setInputList(updatedInputList);
+    console.log(updatedInputList);
+    console.log(inputList);
   }
+
+  useEffect(() => {
+    const newTotalAmount = inputList.reduce((accumulator, data) => {
+      return accumulator + (data.amount / data.month);
+    }, 0);
+    console.log(newTotalAmount);
+    setTotalAmount(newTotalAmount);
+  }, [inputList]);
 
   return (
     <>
       <div className='box'>
         <div className='sub-box'>
           {
-            inputList.map((x, i) => {
+            updatedInputList.map((x, i) => {
               return (
                 <div className='formBox' key={i}>
-                  <input type='text' name="description" onChange={(e) => handleInputChange(e, i)} />
-                  <input type='number' name="amount" onChange={(e) => handleInputChange(e, i)} />
-                  <input type='number' name="month" onChange={(e) => handleInputChange(e, i)} />
+                  <input type='text' name="description" value={x.description} onChange={(e) => handleInputChange(e, i)} />
+                  <input type='number' name="amount" value={x.amount} onChange={(e) => handleInputChange(e, i)} />
+                  <input type='number' name="month" value={x.month} onChange={(e) => handleInputChange(e, i)} />
+                  <button disabled={updatedInputList.length <= 1} onClick={() => deleteSection(i)}>X</button>
                 </div>
               );
             })
@@ -51,13 +71,13 @@ function AddItem() {
             <EmployeeDetail
               costPerPerson={costPerPerson}
               profitPercent={profitPercent}
-              totalAmount={getTotalAmount}
+              totalAmount={totalAmount}
             ></EmployeeDetail>
           </div>
         </div>
         <div className='side-box'>
-          <Setting 
-            totalAmount={getTotalAmount}
+          <Setting
+            totalAmount={totalAmount}
             setCostPerPerson={setCostPerPerson}
             setProfitPercentage={setProfitPercentage}
           ></Setting>
