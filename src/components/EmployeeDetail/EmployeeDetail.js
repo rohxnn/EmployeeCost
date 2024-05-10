@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './EmployeeDetail.css';
+//component
+import Summary from '../Summary/Summary';
 
 function EmployeeDetail(props) {
     const [salary, setSalary] = useState(0);
@@ -12,11 +14,19 @@ function EmployeeDetail(props) {
     }, [salary, props.costPerPerson]);
 
     return (
-        <div>
-            <label>Employee Name</label>
-            <input type='text' />
-            <label>Employee Salary</label>
-            <input type='number' onChange={(e) => setSalary(e.target.value)} />
+        <div className='container-2'>
+            <div>
+                <label>Employee Name</label>
+                <input type='text' />
+                <label>Employee Salary</label>
+                <input type='number' onChange={(e) => setSalary(e.target.value)} />
+            </div>
+            <Summary
+                totalAmount={props.totalAmount}
+                costPerPerson={props.costPerPerson}
+                totalCostPerEmployee={totalCostPerEmployee}
+                profit={profit}
+            ></Summary>
         </div>
     );
 }
