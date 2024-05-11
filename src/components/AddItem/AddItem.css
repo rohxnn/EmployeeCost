@@ -1,12 +1,91 @@
 .box {
-    display: flex;
-    gap: 30px;
-    padding: 30px;
+  display: flex;
+  gap: 30px;
+  padding: 30px;
 }
-.sub-box {
-    width: 70%;
-    background-color: rgb(252, 252, 252);
-}
-.side-box {
 
+.sub-box {
+  padding: 10px 20px 0 20px;
+  width: 70%;
+  background-color: rgb(252, 252, 252);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding-top: 10px;
+}
+
+th {
+  font-weight: 400;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  text-align: left;
+
+}
+
+th:nth-child(2) {
+  text-align: center;
+}
+
+td:nth-child(2) {
+  text-align: right;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  text-align: left;
+}
+
+th {
+  padding: 30px;
+  background-color: lightblue;
+}
+
+.add-button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(84, 192, 235);
+  color: white;
+  border: none;
+}
+
+.custom-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  outline: none;
+}
+
+.monthly-block {
+  display: flex;
+}
+
+.monthly-input {
+  width: 70px;
+}
+
+.side-box {
+  background-color: white;
 }
