@@ -26,3 +26,29 @@
     margin-top: 10px;
     width: 60%;
 }
+
+@media screen and (max-width: 768px) {
+    .container-2 {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(237, 234, 243);
+        margin: auto;
+        margin-top: 10px;
+        width: 80%;
+    }
+
+    .employee-box {
+        width: 80%; /* Adjusting width for smaller screens */
+        padding: 20px; /* Adjusting padding for smaller screens */
+    }
+
+    .custom-input {
+        width: 100%; /* Take full width on smaller screens */
+        margin-bottom: 10px; /* Add margin bottom for better spacing */
+    }
+
+    .label-size {
+        width: 100%; /* Take full width on smaller screens */
+        margin-bottom: 10px; /* Add margin bottom for better spacing */
+    }
+}
