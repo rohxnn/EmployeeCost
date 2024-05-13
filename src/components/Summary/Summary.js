@@ -18,7 +18,7 @@ function Summary() {
     const profit = totalCostPerEmployee * (profitPercent / 100);
     
     return (
-        <div>
+        <div className='summary-box'>
             <p>Total Cost - Rs.{isNaN(gstTotalAmount) || !isFinite(gstTotalAmount) ? 0 : gstTotalAmount.toFixed(2)}</p>
             <p>Cost Per Person - Rs.{isNaN(costPerEmployee) || !isFinite(costPerEmployee) ? 0 : costPerEmployee.toFixed(2)}</p>
             <p>Total Cost Per Person - Rs.{isNaN(totalCostPerEmployee) || !isFinite(totalCostPerEmployee) ? 0 : totalCostPerEmployee.toFixed(2)}</p>
