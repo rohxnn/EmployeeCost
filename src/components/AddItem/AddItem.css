@@ -89,3 +89,35 @@ th {
 .side-box {
   background-color: white;
 }
+@media screen and (max-width: 768px) {
+  .box {
+    padding: 20px; /* Adjust overall padding */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sub-box {
+    padding: 10px 15px; /* Adjust padding */
+    width: 100%; /* Take full width */
+    margin-bottom: 15px; /* Adjust margin */
+  }
+  
+  table {
+    font-size: 14px; /* Reduce font size for tables */
+  }
+  
+  th,
+  td {
+    padding: 8px; /* Adjust padding for table cells */
+  }
+  
+  th {
+    padding: 15px; /* Adjust padding for table headers */
+  }
+  
+  .monthly-input {
+    width: calc(50% - 10px); /* Adjust input width */
+    margin-right: 10px; /* Add margin between inputs */
+    margin-bottom: 10px; /* Add margin bottom */
+  }
+}
