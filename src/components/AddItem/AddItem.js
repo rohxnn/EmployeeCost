@@ -21,14 +21,6 @@ function AddItem() {
     setInputList([...inputList, { description: '', amount: '', occurence: '' }])
   }
 
-  // function getTotalAmount() {
-  //   const totalAmount = inputList.reduce((accumulator, data) => {
-  //     return accumulator + (data.amount / data.month);
-  //   },0);
-  //   console.log(totalAmount);
-  //   return totalAmount ? totalAmount.toFixed(2) : 0;
-  // } kk
-
   function deleteSection(i) {
     console.log(i);
     const updatedInputList = [...inputList];
