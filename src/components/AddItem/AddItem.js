@@ -3,12 +3,12 @@ import './AddItem.css'
 //components
 import Setting from '../Setting/Setting';
 import EmployeeDetail from '../EmployeeDetail/EmployeeDetail';
+//context
+import { useEmployeeContext } from '../../controller/UserContext';
 
 function AddItem() {
   const [inputList, setInputList] = useState([{ description: '', amount: '', month: '' }]);
-  const [costPerPerson, setCostPerPerson] = useState(0);
-  const [profitPercent, setProfitPercentage] = useState(0);
-  const [totalAmount, setTotalAmount] = useState(0);
+  const { setTotalAmount } = useEmployeeContext()
 
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -42,6 +42,7 @@ function AddItem() {
     }, 0);
     setTotalAmount(newTotalAmount);
   }, [inputList]);
+
   return (
     <>
       <div className='box'>
@@ -76,19 +77,11 @@ function AddItem() {
             <button className='add-button' onClick={handleAddClick}>Add Items</button>
           </div>
           <>
-            <EmployeeDetail
-              costPerPerson={costPerPerson}
-              profitPercent={profitPercent}
-              totalAmount={totalAmount}
-            ></EmployeeDetail>
+            <EmployeeDetail></EmployeeDetail>
           </>
         </div>
         <div className='side-box'>
-          <Setting
-            totalAmount={totalAmount}
-            setCostPerPerson={setCostPerPerson}
-            setProfitPercentage={setProfitPercentage}
-          ></Setting>
+          <Setting></Setting>
         </div>
       </div>
     </>
