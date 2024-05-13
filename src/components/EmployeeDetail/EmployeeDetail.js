@@ -15,11 +15,11 @@ function EmployeeDetail(props) {
 
     return (
         <div className='container-2'>
-            <div>
-                <label>Employee Name</label>
-                <input type='text' />
-                <label>Employee Salary</label>
-                <input type='number' onChange={(e) => setSalary(e.target.value)} />
+            <div className='employee-box'>
+                <label className='label-size'>Employee Name</label>
+                <input type='text' className='custom-input'/>
+                <label className='label-size'>Employee Salary</label>
+                <input type='number' className='custom-input' onChange={(e) => setSalary(e.target.value)} />
             </div>
             <Summary
                 totalAmount={props.totalAmount}
