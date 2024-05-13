@@ -7,12 +7,12 @@ import { useEmployeeContext } from '../../controller/UserContext';
 
 function EmployeeDetail() {
     const { setSalary } = useEmployeeContext();
-    
+
     return (
         <div className='container-2'>
             <div className='employee-box'>
                 <label className='label-size'>Employee Name</label>
-                <input type='text' className='custom-input'/>
+                <input type='text' className='custom-input' />
                 <label className='label-size'>Employee Salary</label>
                 <input type='number' className='custom-input' onChange={(e) => setSalary(e.target.value)} />
             </div>
