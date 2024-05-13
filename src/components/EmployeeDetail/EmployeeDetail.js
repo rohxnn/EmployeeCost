@@ -2,17 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './EmployeeDetail.css';
 //component
 import Summary from '../Summary/Summary';
+//context
+import { useEmployeeContext } from '../../controller/UserContext';
 
-function EmployeeDetail(props) {
-    const [salary, setSalary] = useState(0);
-    const [totalCostPerEmployee, setTotalCostPerEmployee] = useState(0);
-    const profit = totalCostPerEmployee * (props.profitPercent / 100);
-
-    useEffect(() => {
-        const newTotalCost = Number(props.costPerPerson) + Number(salary);
-        setTotalCostPerEmployee(newTotalCost);
-    }, [salary, props.costPerPerson]);
-
+function EmployeeDetail() {
+    const { setSalary } = useEmployeeContext();
+    
     return (
         <div className='container-2'>
             <div className='employee-box'>
@@ -21,12 +16,7 @@ function EmployeeDetail(props) {
                 <label className='label-size'>Employee Salary</label>
                 <input type='number' className='custom-input' onChange={(e) => setSalary(e.target.value)} />
             </div>
-            <Summary
-                totalAmount={props.totalAmount}
-                costPerPerson={props.costPerPerson}
-                totalCostPerEmployee={totalCostPerEmployee}
-                profit={profit}
-            ></Summary>
+            <Summary></Summary>
         </div>
     );
 }
