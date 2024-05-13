@@ -22,7 +22,6 @@ function AddItem() {
   }
 
   function deleteSection(i) {
-    console.log(i);
     const updatedInputList = [...inputList];
     updatedInputList.splice(i, 1);
     setInputList(updatedInputList);
@@ -30,7 +29,10 @@ function AddItem() {
 
   useEffect(() => {
     const newTotalAmount = inputList.reduce((accumulator, data) => {
-      return accumulator + (data.amount / data.occurence);
+      if(data.amount && data.occurence) {
+        return accumulator + (data.amount / data.occurence);
+      }
+      else return accumulator + 0;
     }, 0);
     setTotalAmount(newTotalAmount);
   }, [inputList]);
