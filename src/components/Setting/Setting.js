@@ -1,21 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Setting.css';
+//context 
+import { useEmployeeContext } from '../../controller/UserContext';
 
-function Setting(props) {
-    const [employeeNumber, setEmployeeNumber] = useState(1);
-
-    useEffect(() => {
-        const costPerPerson = props.totalAmount / employeeNumber;
-        props.setCostPerPerson(costPerPerson);
-    }, [props.totalAmount, employeeNumber]);
+function Setting() {
+    const {
+        setEmployeeNumber,
+        setProfitPercentage,
+        totalAmount,
+        isGstChecked,
+        setIsGstChecked,
+        setGst
+    } = useEmployeeContext();
 
     const handleEmployeeNumberChange = (e) => {
         setEmployeeNumber(e.target.value);
     }
 
     const handleProfitChanges = (e) => {
-        props.setProfitPercentage(e.target.value);
+        setProfitPercentage(e.target.value);
     }
+
+    useEffect(() => {
+        if (isGstChecked) {
+            const costAfterGst = totalAmount * 0.1;
+            setGst(costAfterGst);
+        } else {
+            setGst(0);
+        }
+    }, [isGstChecked, totalAmount]);
 
     return (
         <div>
@@ -30,7 +43,7 @@ function Setting(props) {
                 <label>Other:</label>
                 <div className='toggle-display'>
                     <label className="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox" onChange={(e) => setIsGstChecked(e.target.checked)} />
                         <span className="slider round"></span>
                     </label>
                     <label style={{ marginLeft: '10px' }}>Add GST</label>
